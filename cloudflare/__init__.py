@@ -105,7 +105,7 @@ class CloudFlare(object):
     def get_rec_id_by_name(self, zone, name):
         list_dns_record = self.rec_load_all(zone)['response']['recs']['objs']
         for dns_record in list_dns_record:
-            if name == dns_record['display_name']:
+            if name.upper() == dns_record['display_name'].upper():
                 return dns_record['rec_id']
         return None
 
